@@ -8,6 +8,63 @@
     <link rel="icon" href="img/books2-logo-removebg-preview.png">
 </head>
 <body>
-    
+    <header class="bg-[#283e50] flex justify-between">
+        <div class="flex">
+            <img src="img/books-logo.png" alt="" class="w-20 h-20 ml-4">
+            <h1 class="text-white pt-7 pl-3 font-bold font-serif text-[15px]">GESTION DE LIVRES</h1>
+        </div>
+    </header>
+
+  <section class="grid grid-cols-1 lg:grid-cols-6 gap-span-1">
+
+      <main class="flex  flex-col m-6 border p-8 rounded-xl col-span-2 lg:h-160">
+          
+           <div class="flex flex-col items-center mb-5 justify-center">
+              <img src="img/books2-logo-removebg-preview.png" alt="" class="w-15 h-15">
+              <h1 class="text-[#283e50] pt-7 pl-3 font-bold font-serif text-[20px]">GESTION DE LIVRES</h1>
+          </div>
+           <label for="cotisation" class="block font-medium">titre : </label>
+          <input id="titre" class="mt-1 w-full rounded border border-daret-bordure px-3 py-2 focus:outline-2 focus:outline-offset-2 focus:outline-daret-vert" placeholder="titre...." type="text">
+          <p id="titer-errour" class="hidden text-[#FF0000]"></p>
+  
+          <label for="cotisation" class="block font-medium">auteur :</label>
+          <input id="auteur" class="mt-1 w-full rounded border border-daret-bordure px-3 py-2 focus:outline-2 focus:outline-offset-2 focus:outline-daret-vert" placeholder="auteur...." type="text">
+           <p id="auteur-errour" class="hidden text-[#FF0000]"></p>
+  
+          <label for="cotisation" class="block font-medium">année de publication :</label>
+          <input id="date" class="mt-1 w-full rounded border border-daret-bordure px-3 py-2 focus:outline-2 focus:outline-offset-2 focus:outline-daret-vert" type="date">
+           <p id="date-errour" class="hidden text-[#FF0000]"></p>
+  
+          <label for="cotisation" class="block font-medium">genre :</label>
+          <input id="genre" class="mt-1 w-full rounded border border-daret-bordure px-3 py-2 focus:outline-2 focus:outline-offset-2 focus:outline-daret-vert" placeholder="genre...." type="text">
+           <p id="genre-errour" class="hidden text-[#FF0000]"></p>
+  
+          <label for="cotisation" class="block font-medium">description :</label>
+          <input id="description" class="mt-1 w-full rounded border border-daret-bordure px-3 py-2 focus:outline-2 focus:outline-offset-2 focus:outline-daret-vert" placeholder="description...." type="text">
+           <p id="description-errour" class="hidden text-[#FF0000]"></p>
+  
+          <button
+          type="button"
+          id="ajouter-liver"
+          class="mt-3 rounded border border-daret-vert bg-[#283e50] text-white mt-5 mx-6 px-4 py-2 font-medium text-daret-vert hover:bg-daret-vert-clair focus:outline-2 focus:outline-offset-2 focus:outline-daret-vert"
+          >
+            ajouter liver
+          </button>
+         
+      </main>
+      <div class="flex flex-col border m-4 lg:m-8 col-span-4 rounded-xl">
+           <div class="flex items-center mb-5 pt-6 pb-6 border-b justify-center bg-[#283e50] rounded-t-xl ">
+              <img src="img/books2-logo-removebg-preview.png" alt="" class="w-15 h-15">
+              <h1 class="text-white pt-7 pl-3 font-bold font-serif text-[20px]">GESTION DE LIVRES</h1>
+          </div>
+         <div id="books" class="grid grid-cols-2 lg:grid-cols-3">
+
+         </div>
+        
+      </div>
+  </section>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
