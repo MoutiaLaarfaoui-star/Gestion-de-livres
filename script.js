@@ -10,15 +10,37 @@ const genreErour = document.getElementById('genre-errour');
 const descriptionErour = document.getElementById('description-errour');
 const dateErrour = document.getElementById('date-errour');
 const books = document.getElementById('books');
+const search = document.getElementById('search');
 
 let arrBooks = JSON.parse(localStorage.getItem("booksList")) || [];
 
-function displayBooks() {
+function displayBooks(filterText = "") {
     books.innerHTML = "";
     
-    arrBooks.forEach(book => {
+   
+    const query = filterText.trim().toLowerCase();
+
+    
+    const sortedBooks = [...arrBooks].sort((a, b) => {
+        const aMatch = a.titre.toLowerCase().includes(query) || a.auteur.toLowerCase().includes(query) || a.date.toLowerCase().includes(query) && query !== "";
+        const bMatch = b.titre.toLowerCase().includes(query) || b.auteur.toLowerCase().includes(query) || b.date.toLowerCase().includes(query)&& query !== "";
+        return bMatch - aMatch; 
+    });
+    
+    sortedBooks.forEach(book => {
         const div = document.createElement('div');
         div.className = "flex flex-col p-4 border-b break-all";
+        
+   
+        if (query !== "" && book.titre.toLowerCase().includes(query)) {
+            div.classList.add("bg-blue-50");
+        }
+        if (query !== "" && book.auteur.toLowerCase().includes(query)) {
+            div.classList.add("bg-blue-50");
+        }
+        if (query !== "" && book.date.toLowerCase().includes(query)) {
+            div.classList.add("bg-blue-50");
+        }
         
         const h1 = document.createElement('h1');
         h1.textContent = book.titre;
@@ -53,7 +75,13 @@ function displayBooks() {
     });
 }
 
+
 displayBooks();
+
+
+search.addEventListener('input', () => {
+    displayBooks(search.value);
+});
 
 titre.addEventListener('input', ()=>{
     if (titre.value.trim() === "" || titre.value.length > 30 || titre.value.length < 3) {
@@ -129,7 +157,9 @@ ajouterLiver.addEventListener('click', function () {
         
         arrBooks.push(newBook);
         localStorage.setItem("booksList", JSON.stringify(arrBooks));
-        displayBooks();
+        
+    
+        displayBooks(search.value);
         
         titre.value = '';
         auteur.value = '';
