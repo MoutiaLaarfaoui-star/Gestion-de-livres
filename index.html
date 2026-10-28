@@ -32,7 +32,7 @@
            <p id="auteur-errour" class="hidden text-[#FF0000]"></p>
   
           <label class="block font-medium">année de publication :</label>
-          <input id="date" class="mt-1 w-full rounded border border-daret-bordure px-3 py-2 focus:outline-2 focus:outline-offset-2 focus:outline-daret-vert" type="date">
+          <input id="date" class="mt-1 w-full rounded border border-daret-bordure px-3 py-2 focus:outline-2 focus:outline-offset-2 focus:outline-daret-vert" type="number" placeholder="année de publication....">
            <p id="date-errour" class="hidden text-[#FF0000]"></p>
   
           <label class="block font-medium">genre :</label>
@@ -53,14 +53,17 @@
          
       </main>
       <div class="flex flex-col border m-4 lg:m-8 col-span-4 rounded-xl">
-           <div class="flex items-center mb-5 pt-6 pb-6 border-b justify-center bg-[#283e50] rounded-t-xl ">
+           <div class="flex items-center pt-6 pb-6 justify-center bg-[#283e50] rounded-t-xl ">
               <img src="img/books2-logo-removebg-preview.png" alt="" class="w-15 h-15">
               <h1 class="text-white pt-7 pl-3 font-bold font-serif text-[20px]">GESTION DE LIVRES</h1>
           </div>
+         <div class="flex gap-1 border-b pb-6 bg-[#283e50] justify-center">
+             <input id="search" class="bg-white mt-1 mx-4  w-90 lg:w-200 rounded border border-daret-bordure px-3 py-2 focus:outline-2 focus:outline-offset-2 focus:outline-daret-vert" placeholder="Rechercher un livre ...." type="text">
+         </div>
+          
          <div id="books">
 
          </div>
-        
       </div>
   </section>
 
