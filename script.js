@@ -27,7 +27,7 @@ function displayBooks(filterText = "") {
     
     sortedBooks.forEach((book) => {
        
-       
+       const arrdelet = arrBooks.indexOf(book)
 
        const div1 = document.createElement('div');
        div1.className = "flex justify-between border-b";
@@ -138,8 +138,23 @@ function displayBooks(filterText = "") {
         modifyBtn.textContent = "Modifier"; 
         modifyBtn.className = "px-4 py-2 bg-yellow-500 text-white font-semibold rounded hover:bg-yellow-600";
         
-    
-        
+        const deletBtn = document.createElement('button');
+        deletBtn.textContent = "Supprimer"; 
+        deletBtn.className = "px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600";
+
+        const con = document.createElement('button')
+        con.textContent = "Voulez-vous supprimer ce livre ?";
+        con.className = "hidden" 
+
+        const confirm = document.createElement('button')
+        confirm.textContent = "confirme"; 
+        confirm.className = "px-4 py-2 bg-red-500 text-white font-semibold rounded hidden hover:bg-red-600";
+
+        const annule = document.createElement('button')
+        annule.textContent = "annule"; 
+        annule.className = "px-4 py-2 bg-green-500 text-white font-semibold rounded hidden hover:bg-green-600";
+
+
         const saveBtn = document.createElement('button');
         saveBtn.textContent = "Sauvegarder";
         saveBtn.className = "px-4 py-2 bg-green-500 text-white font-semibold rounded hover:bg-green-600 hidden";
@@ -187,7 +202,32 @@ function displayBooks(filterText = "") {
         });
 
        
-     
+        deletBtn.addEventListener('click', ()=> {
+            modifyBtn.classList.add('hidden')
+            deletBtn.classList.add('hidden')
+            con.classList.remove('hidden')
+            confirm.classList.remove('hidden')
+            annule.classList.remove('hidden')
+
+            annule.addEventListener('click', ()=>{
+            confirm.classList.add('hidden')
+            annule.classList.add('hidden') 
+            div1.classList.remove("bg-red-200")
+
+             modifyBtn.classList.remove('hidden')
+            deletBtn.classList.remove('hidden')
+            con.classList.add('hidden')
+            })
+            
+            div1.classList.add("bg-red-200")
+            confirm.addEventListener('click', ()=>{
+
+            arrBooks.splice(arrdelet, 1);
+        
+            localStorage.setItem("booksList", JSON.stringify(arrBooks));
+            displayBooks(search.value);
+            })
+        })
         
        
         status.addEventListener('click', () => {
@@ -210,6 +250,10 @@ function displayBooks(filterText = "") {
 
         buttonDiv.appendChild(modifyBtn);
         buttonDiv.appendChild(saveBtn);
+        buttonDiv.appendChild(deletBtn);
+        buttonDiv.appendChild(con);
+        buttonDiv.appendChild(confirm);
+        buttonDiv.appendChild(annule);
         
         
         statusDiv.appendChild(status);
