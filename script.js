@@ -166,6 +166,8 @@ function displayBooks(filterText = "") {
             modifyBtn.classList.add('hidden');
             saveBtn.classList.remove('hidden');
         });
+
+        
         
         
         saveBtn.addEventListener('click', () => {
