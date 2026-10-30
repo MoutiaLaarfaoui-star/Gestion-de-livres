@@ -30,7 +30,7 @@ function displayBooks(filterText = "") {
        const arrdelet = arrBooks.indexOf(book)
 
        const div1 = document.createElement('div');
-       div1.className = "flex flex-col pb-3 lg:justify-between border-b";
+       div1.className = "flex flex-wrap pb-3 lg:justify-between border-b";
        
        const div = document.createElement('div');
        div.className = "flex flex-col p-4 break-all gap-2";
@@ -132,7 +132,7 @@ function displayBooks(filterText = "") {
         descInput.className = "border p-2 rounded hidden"; 
         
         const buttonDiv = document.createElement('div');
-        buttonDiv.className = "flex gap-2 mt-3 justify-center items-center mr-12";
+        buttonDiv.className = "flex gap-2 ml-4 mt-3 justify-center items-center mr-12";
         
         const modifyBtn = document.createElement('button');
         modifyBtn.textContent = "Modifier"; 
